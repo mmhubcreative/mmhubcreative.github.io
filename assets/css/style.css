@@ -86,7 +86,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav__links a {
   font-size: 0.7rem;
   letter-spacing: 0.15em;
-  text-transform: uppercase;
+  text-transform: none;
   font-weight: 400;
   opacity: 0.7;
   transition: opacity 0.2s;
@@ -149,7 +149,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero__eyebrow {
   font-size: 0.65rem;
   letter-spacing: 0.2em;
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--lavender);
   margin-bottom: 1.5rem;
 }
@@ -174,7 +174,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: inline-block;
   font-size: 0.65rem;
   letter-spacing: 0.2em;
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--cream);
   border-bottom: 1px solid var(--cream);
   padding-bottom: 3px;
@@ -188,7 +188,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   writing-mode: vertical-rl;
   font-size: 0.6rem;
   letter-spacing: 0.2em;
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--cream);
   opacity: 0.35;
   display: flex;
@@ -207,9 +207,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ===== SECTION SHELL ===== */
 section { padding: 6rem 3rem; }
 .section-label {
-  font-size: 0.6rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
   opacity: 0.45;
   margin-bottom: 3rem;
   display: flex;
@@ -270,7 +269,7 @@ section { padding: 6rem 3rem; }
 .about__tag {
   font-size: 0.62rem;
   letter-spacing: 0.15em;
-  text-transform: uppercase;
+  text-transform: none;
   border: 1px solid rgba(26,26,26,0.25);
   padding: 0.4rem 0.9rem;
   border-radius: 100px;
@@ -372,7 +371,7 @@ section { padding: 6rem 3rem; }
 .journal-card__cat {
   font-size: 0.6rem;
   letter-spacing: 0.2em;
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--lavender);
 }
 .journal-card__title {
@@ -388,7 +387,7 @@ section { padding: 6rem 3rem; }
 .journal-card__link {
   font-size: 0.62rem;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
+  text-transform: none;
   border-bottom: 1px solid var(--black);
   padding-bottom: 2px;
   display: inline-block;
@@ -406,7 +405,7 @@ section { padding: 6rem 3rem; }
   text-align: center;
   font-size: 0.6rem;
   letter-spacing: 0.25em;
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--cream);
   opacity: 0.3;
   padding-bottom: 2rem;
@@ -449,7 +448,7 @@ section { padding: 6rem 3rem; }
 .contact__social {
   font-size: 0.7rem;
   letter-spacing: 0.15em;
-  text-transform: uppercase;
+  text-transform: none;
   opacity: 0.5;
   transition: opacity 0.2s;
   display: flex;
@@ -477,7 +476,7 @@ section { padding: 6rem 3rem; }
 .form-field label {
   font-size: 0.6rem;
   letter-spacing: 0.2em;
-  text-transform: uppercase;
+  text-transform: none;
   opacity: 0.5;
 }
 .form-field input,
@@ -505,7 +504,7 @@ section { padding: 6rem 3rem; }
   font-family: var(--ff-sans);
   font-size: 0.65rem;
   letter-spacing: 0.2em;
-  text-transform: uppercase;
+  text-transform: none;
   transition: background 0.3s, transform 0.2s;
 }
 .form-submit:hover { background: var(--black); transform: translateY(-1px); }
@@ -536,7 +535,7 @@ section { padding: 6rem 3rem; }
 .footer__links a {
   font-size: 0.62rem;
   letter-spacing: 0.15em;
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--cream);
   opacity: 0.4;
   transition: opacity 0.2s;
@@ -565,7 +564,7 @@ section { padding: 6rem 3rem; }
 .page-hero__label {
   font-size: 0.6rem;
   letter-spacing: 0.25em;
-  text-transform: uppercase;
+  text-transform: none;
   opacity: 0.4;
   margin-bottom: 1.5rem;
 }
@@ -599,7 +598,7 @@ section { padding: 6rem 3rem; }
 .work-item__tag {
   font-size: 0.6rem;
   letter-spacing: 0.2em;
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--lavender);
   margin-bottom: 1rem;
 }
@@ -639,7 +638,7 @@ section { padding: 6rem 3rem; }
 .journal-featured__cat {
   font-size: 0.6rem;
   letter-spacing: 0.2em;
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--lavender);
   margin-bottom: 1rem;
 }
