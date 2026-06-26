@@ -58,6 +58,11 @@ function driveUrl(url) {
   return url;
 }
 
+const SHEET_LABELS = {
+  fashion_blog: "fashion blog",
+  name_a_better_plan: "name a better plan",
+};
+
 function postCard(post, index, sheetName, isFeatured = false) {
   const defaults = DEFAULT_IMAGES[sheetName] || [];
   const rawImg = post["imagen"] || "";
@@ -66,16 +71,21 @@ function postCard(post, index, sheetName, isFeatured = false) {
   const cat = post["categoría"] || post["categoria"] || "";
   const text = post["texto"] || "";
   const fecha = post["fecha"] || "";
+  const sectionLabel = SHEET_LABELS[sheetName] || sheetName;
 
   if (isFeatured) {
+    const catLine = cat
+      ? `( ${cat} · ${sectionLabel} )`
+      : `( última edición · ${sectionLabel} )`;
     return `
       <div class="blog-hero__featured">
         <img class="blog-hero__img" src="${img}" alt="${title}" onerror="this.src='assets/images/feed-1.jpg'"/>
         <div class="blog-hero__text">
-          <p class="blog-hero__category">${cat}</p>
+          <p class="blog-hero__category">${catLine}</p>
           <h1 class="blog-hero__title">${title}</h1>
           <p class="blog-hero__body">${text}</p>
           ${fecha ? `<p class="blog-hero__meta">${fecha}</p>` : ""}
+          <a class="blog-hero__read">leer la nota →</a>
         </div>
       </div>`;
   }
@@ -98,7 +108,7 @@ async function loadBlog(sheetName) {
   if (!heroEl || !gridEl) return;
 
   try {
-    const url = `${SHEET_BASE}&sheet=${sheetName}`;
+    const url = `${SHEET_BASE}&sheet=${sheetName}&t=${Date.now()}`;
     const res = await fetch(url);
     const text = await res.text();
     const posts = parseCSV(text);
