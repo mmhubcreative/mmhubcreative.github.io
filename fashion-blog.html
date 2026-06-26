@@ -20,50 +20,15 @@
     <button class="nav__burger" aria-label="Menú"><span></span><span></span><span></span></button>
   </nav>
 
-  <!-- FEATURED POST -->
-  <div class="blog-hero">
-    <img class="blog-hero__img" src="assets/images/story-2.jpg" alt="fashion blog"/>
-    <div class="blog-hero__text reveal">
-      <p class="blog-hero__category">moda · tendencias</p>
-      <h1 class="blog-hero__title">celebrity picks: los looks que están marcando la temporada</h1>
-      <p class="blog-hero__body">
-        cada temporada hay prendas que van más allá de las pasarelas y se instalan en la cultura popular gracias a las celebrities que las eligen. este mes analizamos los outfits que más hablaron, por qué funcionan y cómo replicarlos sin perder la identidad propia.
-      </p>
-      <a href="#" class="blog-hero__link">leer artículo completo</a>
+  <!-- FEATURED: se carga desde Google Sheets -->
+  <div id="blog-hero">
+    <div style="min-height:80vh;display:flex;align-items:center;justify-content:center;padding-top:6rem">
+      <p style="font-family:var(--ff-serif);font-size:1.5rem;color:var(--navy);opacity:0.4"><em>cargando...</em></p>
     </div>
   </div>
 
-  <!-- GRID DE POSTS -->
-  <div class="blog-grid">
-    <article class="blog-card reveal">
-      <img class="blog-card__img" src="assets/images/feed-1.jpg" alt=""/>
-      <p class="blog-card__cat">tendencias</p>
-      <h2 class="blog-card__title">los 5 must-have de la temporada</h2>
-      <p class="blog-card__excerpt">las prendas que ningún armario puede ignorar este año y cómo combinarlas para cualquier ocasión y presupuesto.</p>
-      <a href="#" class="blog-card__link">leer más</a>
-    </article>
-    <article class="blog-card reveal reveal-delay-1">
-      <img class="blog-card__img" src="assets/images/feed-2.jpg" alt=""/>
-      <p class="blog-card__cat">marcas</p>
-      <h2 class="blog-card__title">cómo construir una marca personal auténtica</h2>
-      <p class="blog-card__excerpt">el proceso detrás de una identidad que comunica quién sos antes de que digas una sola palabra.</p>
-      <a href="#" class="blog-card__link">leer más</a>
-    </article>
-    <article class="blog-card reveal">
-      <img class="blog-card__img" src="assets/images/feed-5.jpg" alt=""/>
-      <p class="blog-card__cat">editorial</p>
-      <h2 class="blog-card__title">el regreso del editorial: por qué la fotografía de moda vuelve a importar</h2>
-      <p class="blog-card__excerpt">en un mundo de contenido efímero, las imágenes cuidadas vuelven a tener peso cultural.</p>
-      <a href="#" class="blog-card__link">leer más</a>
-    </article>
-    <article class="blog-card reveal reveal-delay-1">
-      <img class="blog-card__img" src="assets/images/story-3.jpg" alt=""/>
-      <p class="blog-card__cat">opinión</p>
-      <h2 class="blog-card__title">somos lo que comunicamos: identidad en la era digital</h2>
-      <p class="blog-card__excerpt">reflexiones sobre autenticidad, presencia digital y lo que realmente significa tener una voz propia.</p>
-      <a href="#" class="blog-card__link">leer más</a>
-    </article>
-  </div>
+  <!-- GRID: resto de posts -->
+  <div id="blog-grid" class="blog-grid" style="display:none"></div>
 
   <footer class="footer">
     <span class="footer__logo">mm.hub</span>
@@ -76,5 +41,7 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/blog-loader.js"></script>
+  <script>loadBlog("fashion_blog");</script>
 </body>
 </html>

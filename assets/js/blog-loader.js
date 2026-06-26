@@ -1,0 +1,113 @@
+const SHEET_BASE = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRMhDPTkKagccSS7r_54PlF87LyXS-M6Q1nVIfxnHn97pziUeG8Rp1-HqgfgQ11n9rTtAMJynDjvQuY/pub?output=csv";
+
+const DEFAULT_IMAGES = {
+  fashion_blog: [
+    "assets/images/story-2.jpg",
+    "assets/images/feed-1.jpg",
+    "assets/images/feed-2.jpg",
+    "assets/images/feed-5.jpg",
+  ],
+  name_a_better_plan: [
+    "assets/images/feed-4.jpg",
+    "assets/images/feed-3.jpg",
+    "assets/images/feed-6.jpg",
+    "assets/images/hub.jpg",
+  ],
+};
+
+function parseCSV(text) {
+  const lines = text.trim().split("\n");
+  // Row 0 is empty, Row 1 is headers
+  if (lines.length < 3) return [];
+  const headers = lines[1].split(",").map((h) => h.replace(/^"|"$/g, "").trim());
+  const rows = [];
+  for (let i = 2; i < lines.length; i++) {
+    const cols = splitCSVLine(lines[i]);
+    if (cols.every((c) => !c.trim())) continue; // skip empty rows
+    const obj = {};
+    headers.forEach((h, idx) => {
+      obj[h] = (cols[idx] || "").replace(/^"|"$/g, "").trim();
+    });
+    rows.push(obj);
+  }
+  return rows;
+}
+
+function splitCSVLine(line) {
+  const result = [];
+  let current = "";
+  let inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (ch === '"') { inQuotes = !inQuotes; continue; }
+    if (ch === "," && !inQuotes) { result.push(current); current = ""; continue; }
+    current += ch;
+  }
+  result.push(current);
+  return result;
+}
+
+function postCard(post, index, sheetName, isFeatured = false) {
+  const defaults = DEFAULT_IMAGES[sheetName] || [];
+  const img = post["imagen"] || defaults[index % defaults.length] || "assets/images/feed-1.jpg";
+  const title = post["Titulo"] || post["titulo"] || "sin título";
+  const cat = post["categoría"] || post["categoria"] || "";
+  const text = post["texto"] || "";
+  const fecha = post["fecha"] || "";
+
+  if (isFeatured) {
+    return `
+      <div class="blog-hero">
+        <img class="blog-hero__img" src="${img}" alt="${title}" onerror="this.src='assets/images/feed-1.jpg'"/>
+        <div class="blog-hero__text">
+          <p class="blog-hero__category">${cat}${fecha ? " · " + fecha : ""}</p>
+          <h1 class="blog-hero__title">${title}</h1>
+          <p class="blog-hero__body">${text}</p>
+        </div>
+      </div>`;
+  }
+
+  return `
+    <article class="blog-card">
+      <img class="blog-card__img" src="${img}" alt="${title}" onerror="this.src='assets/images/feed-1.jpg'"/>
+      <p class="blog-card__cat">${cat}</p>
+      <h2 class="blog-card__title">${title}</h2>
+      <p class="blog-card__excerpt">${text.length > 160 ? text.slice(0, 160) + "…" : text}</p>
+      ${fecha ? `<p style="font-size:0.6rem;opacity:0.4;margin-top:0.5rem;font-weight:300">${fecha}</p>` : ""}
+    </article>`;
+}
+
+async function loadBlog(sheetName) {
+  const heroEl = document.getElementById("blog-hero");
+  const gridEl = document.getElementById("blog-grid");
+  if (!heroEl || !gridEl) return;
+
+  try {
+    const url = `${SHEET_BASE}&sheet=${sheetName}`;
+    const res = await fetch(url);
+    const text = await res.text();
+    const posts = parseCSV(text);
+
+    if (!posts.length) {
+      heroEl.innerHTML = `<div style="padding:8rem 3rem;text-align:center;color:var(--navy);font-family:var(--ff-serif);font-size:1.5rem"><em>próximamente...</em></div>`;
+      gridEl.innerHTML = "";
+      return;
+    }
+
+    // First post → featured hero
+    heroEl.innerHTML = postCard(posts[0], 0, sheetName, true);
+
+    // Rest → grid
+    if (posts.length > 1) {
+      gridEl.style.display = "grid";
+      gridEl.innerHTML = posts
+        .slice(1)
+        .map((p, i) => postCard(p, i + 1, sheetName, false))
+        .join("");
+    } else {
+      gridEl.style.display = "none";
+    }
+  } catch (err) {
+    heroEl.innerHTML = `<div style="padding:8rem 3rem;text-align:center;opacity:0.4;font-size:0.85rem">no se pudo cargar el contenido</div>`;
+  }
+}

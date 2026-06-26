@@ -20,50 +20,15 @@
     <button class="nav__burger" aria-label="Menú"><span></span><span></span><span></span></button>
   </nav>
 
-  <!-- FEATURED POST -->
-  <div class="blog-hero">
-    <img class="blog-hero__img" src="assets/images/feed-4.jpg" alt="name a better plan"/>
-    <div class="blog-hero__text reveal">
-      <p class="blog-hero__category">cafés · planes</p>
-      <h1 class="blog-hero__title">el café que se convirtió en ritual</h1>
-      <p class="blog-hero__body">
-        algunos lugares no son solo un café. son el plan perfecto para cualquier momento del día — para trabajar, para ver a alguien que querés, o simplemente para estar. encontré uno de esos y no me fui más. acá te cuento por qué.
-      </p>
-      <a href="#" class="blog-hero__link">leer artículo completo</a>
+  <!-- FEATURED: se carga desde Google Sheets -->
+  <div id="blog-hero">
+    <div style="min-height:80vh;display:flex;align-items:center;justify-content:center;padding-top:6rem">
+      <p style="font-family:var(--ff-serif);font-size:1.5rem;color:var(--navy);opacity:0.4"><em>cargando...</em></p>
     </div>
   </div>
 
-  <!-- GRID DE POSTS -->
-  <div class="blog-grid">
-    <article class="blog-card reveal">
-      <img class="blog-card__img" src="assets/images/feed-3.jpg" alt=""/>
-      <p class="blog-card__cat">guía</p>
-      <h2 class="blog-card__title">guía para encontrar tu café favorito</h2>
-      <p class="blog-card__excerpt">criterios, tips y lugares que pasaron el filtro más exigente: el nuestro.</p>
-      <a href="#" class="blog-card__link">leer más</a>
-    </article>
-    <article class="blog-card reveal reveal-delay-1">
-      <img class="blog-card__img" src="assets/images/feed-6.jpg" alt=""/>
-      <p class="blog-card__cat">planes</p>
-      <h2 class="blog-card__title">los mejores rincones para una tarde larga</h2>
-      <p class="blog-card__excerpt">esos lugares donde el tiempo pasa diferente y siempre querés quedarte un poco más.</p>
-      <a href="#" class="blog-card__link">leer más</a>
-    </article>
-    <article class="blog-card reveal">
-      <img class="blog-card__img" src="assets/images/feed-5.jpg" alt=""/>
-      <p class="blog-card__cat">reseña</p>
-      <h2 class="blog-card__title">ese brunch que lo cambia todo</h2>
-      <p class="blog-card__excerpt">porque hay brunches y hay brunches. este es de los que se recuerdan.</p>
-      <a href="#" class="blog-card__link">leer más</a>
-    </article>
-    <article class="blog-card reveal reveal-delay-1">
-      <img class="blog-card__img" src="assets/images/hub.jpg" alt=""/>
-      <p class="blog-card__cat">favoritos</p>
-      <h2 class="blog-card__title">mis cinco cafés de cabecera</h2>
-      <p class="blog-card__excerpt">los que nunca fallan, los que siempre recomiendo y los que ya son parte de la rutina.</p>
-      <a href="#" class="blog-card__link">leer más</a>
-    </article>
-  </div>
+  <!-- GRID: resto de posts -->
+  <div id="blog-grid" class="blog-grid" style="display:none"></div>
 
   <footer class="footer">
     <span class="footer__logo">mm.hub</span>
@@ -76,5 +41,7 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/blog-loader.js"></script>
+  <script>loadBlog("name_a_better_plan");</script>
 </body>
 </html>
