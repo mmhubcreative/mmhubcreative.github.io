@@ -47,9 +47,21 @@ function splitCSVLine(line) {
   return result;
 }
 
+function driveUrl(url) {
+  if (!url) return null;
+  // Convierte cualquier link de Drive a URL directa de imagen
+  const match = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if (match) return `https://drive.google.com/uc?export=view&id=${match[1]}`;
+  // Si ya es una URL directa de Drive (uc?id=...)
+  if (url.includes("drive.google.com/uc")) return url;
+  // Cualquier otra URL la usa tal cual
+  return url;
+}
+
 function postCard(post, index, sheetName, isFeatured = false) {
   const defaults = DEFAULT_IMAGES[sheetName] || [];
-  const img = post["imagen"] || defaults[index % defaults.length] || "assets/images/feed-1.jpg";
+  const rawImg = post["imagen"] || "";
+  const img = driveUrl(rawImg) || defaults[index % defaults.length] || "assets/images/feed-1.jpg";
   const title = post["Titulo"] || post["titulo"] || "sin título";
   const cat = post["categoría"] || post["categoria"] || "";
   const text = post["texto"] || "";
