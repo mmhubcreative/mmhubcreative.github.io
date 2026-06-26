@@ -189,10 +189,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .hero-bottom__lema {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   text-align: center;
   padding: 3rem;
-  isolation: isolate;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 .hero-bottom__lema p {
   font-family: var(--ff-sans);
@@ -200,6 +201,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--cream);
   line-height: 1.15;
   font-weight: 300;
+  text-shadow: none;
   -webkit-font-smoothing: antialiased;
 }
 .hero-bottom__lema em {
