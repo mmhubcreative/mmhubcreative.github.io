@@ -159,16 +159,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .hero-bottom {
   position: relative;
+  overflow: hidden;
   min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('../images/feed-1.jpg');
-  background-size: cover;
-  background-position: center;
+  background: url('../images/feed-1.jpg') center/cover no-repeat;
 }
-.hero-bottom::before {
-  content: '';
+.hero-bottom__overlay {
   position: absolute;
   inset: 0;
   background: rgba(20, 25, 50, 0.72);
