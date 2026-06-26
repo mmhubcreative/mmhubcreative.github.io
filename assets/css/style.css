@@ -577,6 +577,87 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .footer__social:hover { opacity: 1; transform: translateY(-2px); }
 
+/* ── POST PAGE ── */
+.post-page { background: var(--cream); min-height: 80vh; }
+
+.post-loading {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 80vh; padding-top: 6rem;
+  font-family: var(--ff-display); font-style: italic;
+  font-size: 1.4rem; color: var(--navy); opacity: 0.35;
+}
+
+.post-hero {
+  width: 100%;
+  max-height: 70vh;
+  overflow: hidden;
+  padding-top: 5rem;
+}
+.post-hero__img {
+  width: 100%;
+  max-height: 65vh;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.post-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 2rem 8rem;
+}
+.post-back {
+  display: inline-block;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  opacity: 0.4;
+  margin-bottom: 2.5rem;
+  transition: opacity 0.2s;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+.post-back:hover { opacity: 0.85; }
+.post-cat {
+  font-size: 0.57rem;
+  letter-spacing: 0.2em;
+  color: var(--lavender);
+  margin-bottom: 1rem;
+}
+.post-title {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  color: var(--navy);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+.post-date {
+  font-size: 0.57rem;
+  letter-spacing: 0.1em;
+  opacity: 0.3;
+  margin-bottom: 3rem;
+}
+.post-text {
+  font-size: 1rem;
+  line-height: 2.1;
+  opacity: 0.7;
+  color: var(--black);
+}
+.post-empty {
+  padding: 8rem 3rem;
+  text-align: center;
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  opacity: 0.4;
+}
+.post-empty a { border-bottom: 1px solid currentColor; }
+
+/* make blog-featured behave as block link */
+a.blog-featured { display: grid; grid-template-columns: 1fr 1fr; }
+a.blog-featured .blog-featured__img { transition: transform 0.6s var(--ease); }
+a.blog-featured:hover .blog-featured__img { transform: scale(1.02); }
+
 /* ── REVEAL ANIMATIONS ── */
 .reveal {
   opacity: 0;

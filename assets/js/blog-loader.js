@@ -52,7 +52,7 @@ function field(post, ...keys) {
 }
 
 /* ── FEATURED CARD ── */
-function renderFeatured(post, sheetName) {
+function renderFeatured(post, sheetName, idx) {
   const img   = driveUrl(field(post, "imagen")) || "";
   const title = field(post, "Titulo", "titulo") || "sin título";
   const cat   = field(post, "categoría", "categoria");
@@ -60,31 +60,33 @@ function renderFeatured(post, sheetName) {
   const fecha = field(post, "fecha");
   const label = SECTION_LABELS[sheetName] || sheetName;
   const catLine = cat ? `( ${cat} · ${label} )` : `( última edición · ${label} )`;
+  const href = `post.html?sheet=${sheetName}&idx=${idx}`;
 
   return `
-  <div class="blog-featured">
+  <a class="blog-featured" href="${href}">
     ${img ? `<img class="blog-featured__img" src="${img}" alt="${title}" onerror="this.style.display='none'"/>` : `<div class="blog-featured__img" style="background:var(--navy)"></div>`}
     <div class="blog-featured__content">
       <p class="blog-featured__label">${catLine}</p>
       <h1 class="blog-featured__title">${title}</h1>
-      <p class="blog-featured__text">${text}</p>
+      <p class="blog-featured__text">${text.length > 220 ? text.slice(0, 220) + "…" : text}</p>
       ${fecha ? `<p class="blog-featured__date">${fecha}</p>` : ""}
       <span class="blog-featured__read">leer la nota →</span>
     </div>
-  </div>`;
+  </a>`;
 }
 
 /* ── GRID CARD ── */
-function renderCard(post, sheetName) {
+function renderCard(post, sheetName, idx) {
   const img   = driveUrl(field(post, "imagen")) || "";
   const title = field(post, "Titulo", "titulo") || "sin título";
   const cat   = field(post, "categoría", "categoria");
   const text  = field(post, "texto");
   const fecha = field(post, "fecha");
   const excerpt = text.length > 130 ? text.slice(0, 130) + "…" : text;
+  const href = `post.html?sheet=${sheetName}&idx=${idx}`;
 
   return `
-  <article class="blog-card">
+  <a class="blog-card" href="${href}">
     <div class="blog-card__img-wrap">
       ${img
         ? `<img class="blog-card__img" src="${img}" alt="${title}" onerror="this.closest('.blog-card__img-wrap').style.display='none'"/>`
@@ -94,7 +96,7 @@ function renderCard(post, sheetName) {
     <h2 class="blog-card__title">${title}</h2>
     ${excerpt ? `<p class="blog-card__excerpt">${excerpt}</p>` : ""}
     ${fecha ? `<p class="blog-card__date">${fecha}</p>` : ""}
-  </article>`;
+  </a>`;
 }
 
 /* ── MAIN LOADER ── */
@@ -115,9 +117,9 @@ async function loadBlog(sheetName) {
       return;
     }
 
-    if (featuredEl) featuredEl.innerHTML = renderFeatured(posts[0], sheetName);
+    if (featuredEl) featuredEl.innerHTML = renderFeatured(posts[0], sheetName, 0);
     if (gridEl) {
-      gridEl.innerHTML = posts.map(p => renderCard(p, sheetName)).join("");
+      gridEl.innerHTML = posts.map((p, i) => renderCard(p, sheetName, i)).join("");
       gridEl.style.display = "grid";
     }
   } catch (err) {
