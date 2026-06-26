@@ -159,26 +159,19 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .hero-bottom {
   position: relative;
-  overflow: hidden;
   min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateZ(0);
+  background-image: url('../images/feed-1.jpg');
+  background-size: cover;
+  background-position: center;
 }
-.hero-bottom__img {
+.hero-bottom::before {
+  content: '';
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.5;
-}
-.hero-bottom__overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(28,35,64,0.55);
-  mix-blend-mode: normal;
+  background: rgba(20, 25, 50, 0.72);
 }
 .hero-bottom__curves {
   position: absolute;
