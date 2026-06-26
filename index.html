@@ -6,162 +6,75 @@
   <title>mm.hub</title>
   <meta name="description" content="mm.hub — creamos, planificamos & comunicamos moda."/>
   <link rel="stylesheet" href="assets/css/style.css"/>
-  <style>
-    .hero-banner {
-      min-height: 100vh;
-      background: var(--navy);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
-      padding: 6rem 3rem 4rem;
-    }
-    .hero-banner__img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      opacity: 0.55;
-      filter: grayscale(20%);
-    }
-    .hero-banner__overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(28,35,64,0.85) 0%, rgba(28,35,64,0.1) 60%);
-    }
-    .hero-banner__content {
-      position: relative;
-      z-index: 1;
-    }
-    .hero-banner__lema {
-      font-family: var(--ff-serif);
-      font-size: clamp(2.2rem, 5vw, 4.5rem);
-      color: var(--cream);
-      line-height: 1.1;
-      max-width: 700px;
-    }
-    .hero-banner__lema em { font-style: italic; }
-    .hero-banner__sub {
-      margin-top: 1.5rem;
-      font-size: 0.85rem;
-      color: var(--cream);
-      opacity: 0.5;
-      letter-spacing: 0.05em;
-    }
-    /* Blog previews grid on home */
-    .home-blogs {
-      background: var(--cream);
-      padding: 5rem 3rem;
-    }
-    .home-blogs__header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      margin-bottom: 4rem;
-      border-bottom: 1px solid rgba(26,26,26,0.08);
-      padding-bottom: 3rem;
-    }
-    .home-blogs__col-title {
-      font-family: var(--ff-serif);
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-    .home-blogs__col-desc {
-      font-size: 0.78rem;
-      opacity: 0.5;
-      line-height: 1.7;
-    }
-    .home-blogs__grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-    @media (max-width: 700px) {
-      .home-blogs__header { grid-template-columns: 1fr; gap: 2rem; }
-      .home-blogs__grid { grid-template-columns: 1fr; }
-      .hero-banner { padding: 7rem 1.5rem 3rem; }
-      .home-blogs { padding: 4rem 1.5rem; }
-    }
-  </style>
 </head>
 <body>
 
-  <nav class="nav dark" id="nav">
+  <nav class="nav" id="nav">
     <a href="index.html" class="nav__logo">mm.hub</a>
     <ul class="nav__links">
       <li><a href="index.html" class="active">inicio</a></li>
-      <li><a href="about.html">about me</a></li>
       <li><a href="fashion-blog.html">fashion blog</a></li>
       <li><a href="name-a-better-plan.html">name a better plan</a></li>
       <li><a href="work.html">work with us</a></li>
-      <li><a href="contacto.html">contacto</a></li>
+      <li><a href="about.html">about me</a></li>
     </ul>
-    <button class="nav__burger" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav__burger" aria-label="Menú"><span></span><span></span><span></span></button>
   </nav>
 
-  <!-- HERO BANNER -->
-  <div class="hero-banner">
-    <img class="hero-banner__img" src="assets/images/story-1.jpg" alt="María Agustina Mattos"/>
-    <div class="hero-banner__overlay"></div>
-    <div class="hero-banner__content">
-      <h1 class="hero-banner__lema">
-        creamos, planificamos<br>&amp; <em>comunicamos moda.</em>
-      </h1>
-      <p class="hero-banner__sub">mm.hub — universo creativo de Maruchi</p>
+  <!-- HERO TOP: cream + logo centrado + foto flotante -->
+  <div class="hero-top">
+    <h1 class="hero-top__logo">mm hub</h1>
+    <img class="hero-top__photo" src="assets/images/feed-2.jpg" alt="mm.hub"/>
+    <p class="hero-top__handle">por @maruchiimattos</p>
+  </div>
+
+  <!-- HERO BOTTOM: foto oscura + lema -->
+  <div class="hero-bottom">
+    <img class="hero-bottom__img" src="assets/images/feed-1.jpg" alt=""/>
+    <div class="hero-bottom__overlay"></div>
+    <svg class="hero-bottom__curves" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <ellipse cx="300" cy="350" rx="350" ry="550" stroke="#C9A8D4" stroke-width="1.2" transform="rotate(-25 300 350)"/>
+      <ellipse cx="900" cy="350" rx="280" ry="420" stroke="#C9A8D4" stroke-width="0.8" transform="rotate(20 900 350)"/>
+      <ellipse cx="600" cy="200" rx="200" ry="320" stroke="#C9A8D4" stroke-width="0.5" transform="rotate(-10 600 200)"/>
+    </svg>
+    <div class="hero-bottom__lema">
+      <p>somos <em>hub,</em></p>
+      <p>creamos, planificamos</p>
+      <p>y <em>comunicamos moda.</em></p>
     </div>
   </div>
 
   <!-- BLOG PREVIEWS -->
-  <div class="home-blogs">
-    <div class="home-blogs__header reveal">
-      <div>
-        <h2 class="home-blogs__col-title"><em>fashion blog</em></h2>
-        <p class="home-blogs__col-desc">notas sobre moda, tendencias y marcas que nos inspiran.</p>
-        <a href="fashion-blog.html" class="journal-card__link" style="margin-top:1rem;display:inline-block">ver todo</a>
-      </div>
-      <div>
-        <h2 class="home-blogs__col-title"><em>name a better plan</em></h2>
-        <p class="home-blogs__col-desc">los mejores cafés y planes de la ciudad, contados desde adentro.</p>
-        <a href="name-a-better-plan.html" class="journal-card__link" style="margin-top:1rem;display:inline-block">ver todo</a>
-      </div>
-    </div>
-    <div class="home-blogs__grid">
-      <article class="journal-card reveal">
-        <div class="journal-card__img"><img src="assets/images/story-2.jpg" alt=""/></div>
-        <p class="journal-card__cat">fashion blog</p>
-        <h3 class="journal-card__title">los 5 must-have de la temporada</h3>
-        <p class="journal-card__excerpt">Las prendas que ningún armario puede ignorar este año y cómo combinarlas para cualquier ocasión.</p>
-        <a href="fashion-blog.html" class="journal-card__link">leer más</a>
-      </article>
-      <article class="journal-card reveal reveal-delay-1">
-        <div class="journal-card__img"><img src="assets/images/feed-3.jpg" alt=""/></div>
-        <p class="journal-card__cat">name a better plan</p>
-        <h3 class="journal-card__title">el café que se convirtió en ritual</h3>
-        <p class="journal-card__excerpt">Algunos lugares no son solo un café. Son el plan perfecto para cualquier momento del día.</p>
-        <a href="name-a-better-plan.html" class="journal-card__link">leer más</a>
-      </article>
-      <article class="journal-card reveal reveal-delay-2">
-        <div class="journal-card__img"><img src="assets/images/feed-1.jpg" alt=""/></div>
-        <p class="journal-card__cat">fashion blog</p>
-        <h3 class="journal-card__title">cómo construir una marca personal auténtica</h3>
-        <p class="journal-card__excerpt">El proceso detrás de una identidad que comunica quién sos antes de que digas una sola palabra.</p>
-        <a href="fashion-blog.html" class="journal-card__link">leer más</a>
-      </article>
-      <article class="journal-card reveal reveal-delay-3">
-        <div class="journal-card__img"><img src="assets/images/feed-4.jpg" alt=""/></div>
-        <p class="journal-card__cat">name a better plan</p>
-        <h3 class="journal-card__title">guía para encontrar tu café favorito</h3>
-        <p class="journal-card__excerpt">Criterios, tips y lugares que pasaron el filtro más exigente: el nuestro.</p>
-        <a href="name-a-better-plan.html" class="journal-card__link">leer más</a>
-      </article>
-    </div>
-  </div>
+  <section style="background:var(--cream);padding:6rem 3rem">
+    <p class="section-label">últimas notas</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:1rem">
 
-  <!-- MARCAS MARQUEE -->
+      <!-- FASHION BLOG preview -->
+      <div>
+        <p style="font-size:0.62rem;letter-spacing:0.15em;color:var(--lavender);margin-bottom:1.5rem;font-weight:300">fashion blog</p>
+        <div class="reveal">
+          <img src="assets/images/story-2.jpg" alt="" style="width:100%;aspect-ratio:4/3;object-fit:cover;filter:grayscale(15%);margin-bottom:1.5rem"/>
+          <h2 style="font-family:var(--ff-serif);font-size:1.8rem;color:var(--navy);margin-bottom:1rem;line-height:1.1">los 5 must-have de la temporada</h2>
+          <p style="font-size:0.85rem;line-height:1.9;opacity:0.6;font-weight:300;margin-bottom:1.5rem">las prendas que ningún armario puede ignorar este año y cómo combinarlas para cualquier ocasión.</p>
+          <a href="fashion-blog.html" style="font-size:0.62rem;letter-spacing:0.12em;border-bottom:1px solid var(--black);padding-bottom:2px">leer más</a>
+        </div>
+      </div>
+
+      <!-- NAME A BETTER PLAN preview -->
+      <div>
+        <p style="font-size:0.62rem;letter-spacing:0.15em;color:var(--lavender);margin-bottom:1.5rem;font-weight:300">name a better plan</p>
+        <div class="reveal reveal-delay-1">
+          <img src="assets/images/feed-4.jpg" alt="" style="width:100%;aspect-ratio:4/3;object-fit:cover;filter:grayscale(15%);margin-bottom:1.5rem"/>
+          <h2 style="font-family:var(--ff-serif);font-size:1.8rem;color:var(--navy);margin-bottom:1rem;line-height:1.1">el café que se convirtió en ritual</h2>
+          <p style="font-size:0.85rem;line-height:1.9;opacity:0.6;font-weight:300;margin-bottom:1.5rem">algunos lugares no son solo un café. son el plan perfecto para cualquier momento del día.</p>
+          <a href="name-a-better-plan.html" style="font-size:0.62rem;letter-spacing:0.12em;border-bottom:1px solid var(--black);padding-bottom:2px">leer más</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
   <div class="brands">
     <p class="brands__label">marcas &amp; colaboraciones</p>
     <div class="marquee">
@@ -169,14 +82,14 @@
       <span class="marquee__item">( comunicación )</span>
       <span class="marquee__item">( creatividad )</span>
       <span class="marquee__item">( experiencias )</span>
-      <span class="marquee__item">( contenido )</span>
       <span class="marquee__item">( styling )</span>
+      <span class="marquee__item">( contenido )</span>
       <span class="marquee__item">( moda )</span>
       <span class="marquee__item">( comunicación )</span>
       <span class="marquee__item">( creatividad )</span>
       <span class="marquee__item">( experiencias )</span>
-      <span class="marquee__item">( contenido )</span>
       <span class="marquee__item">( styling )</span>
+      <span class="marquee__item">( contenido )</span>
     </div>
   </div>
 
@@ -184,9 +97,9 @@
     <span class="footer__logo">mm.hub</span>
     <span class="footer__copy">© 2025 mm.hub</span>
     <nav class="footer__links">
-      <a href="about.html">about me</a>
+      <a href="fashion-blog.html">fashion blog</a>
       <a href="work.html">work with us</a>
-      <a href="contacto.html">contacto</a>
+      <a href="about.html">about me</a>
     </nav>
   </footer>
 

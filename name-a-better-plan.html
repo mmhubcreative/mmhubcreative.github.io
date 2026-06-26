@@ -8,88 +8,70 @@
 </head>
 <body>
 
-  <nav class="nav dark" id="nav">
+  <nav class="nav" id="nav">
     <a href="index.html" class="nav__logo">mm.hub</a>
     <ul class="nav__links">
       <li><a href="index.html">inicio</a></li>
-      <li><a href="about.html">about me</a></li>
       <li><a href="fashion-blog.html">fashion blog</a></li>
       <li><a href="name-a-better-plan.html" class="active">name a better plan</a></li>
       <li><a href="work.html">work with us</a></li>
-      <li><a href="contacto.html">contacto</a></li>
+      <li><a href="about.html">about me</a></li>
     </ul>
-    <button class="nav__burger" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav__burger" aria-label="Menú"><span></span><span></span><span></span></button>
   </nav>
 
-  <div class="page-hero">
-    <svg class="page-hero__curves" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="400" cy="200" rx="280" ry="380" stroke="#F0EBE3" stroke-width="1" transform="rotate(-15 400 200)"/>
-      <ellipse cx="500" cy="350" rx="180" ry="260" stroke="#F0EBE3" stroke-width="0.5" transform="rotate(-15 500 350)"/>
-    </svg>
-    <p class="page-hero__label">name a better plan</p>
-    <h1 class="page-hero__title">cafés, planes<br>&amp; <em>buenos momentos.</em></h1>
-    <p class="page-hero__subtitle">los mejores lugares contados desde adentro. spoiler: no podés.</p>
+  <!-- FEATURED POST -->
+  <div class="blog-hero">
+    <img class="blog-hero__img" src="assets/images/feed-4.jpg" alt="name a better plan"/>
+    <div class="blog-hero__text reveal">
+      <p class="blog-hero__category">cafés · planes</p>
+      <h1 class="blog-hero__title">el café que se convirtió en ritual</h1>
+      <p class="blog-hero__body">
+        algunos lugares no son solo un café. son el plan perfecto para cualquier momento del día — para trabajar, para ver a alguien que querés, o simplemente para estar. encontré uno de esos y no me fui más. acá te cuento por qué.
+      </p>
+      <a href="#" class="blog-hero__link">leer artículo completo</a>
+    </div>
   </div>
 
-  <section class="journal-full">
-
-    <!-- FEATURED -->
-    <div class="journal-featured">
-      <div class="journal-featured__img reveal">
-        <img src="assets/images/feed-4.jpg" alt="café favorito"/>
-      </div>
-      <div class="reveal reveal-delay-1">
-        <p class="journal-featured__cat">cafés · planes</p>
-        <h2 class="journal-featured__title">el café que se convirtió en <em>ritual.</em></h2>
-        <p class="journal-featured__body">
-          algunos lugares no son solo un café. son el plan perfecto para cualquier momento del día — para trabajar, para ver a alguien que querés, o simplemente para estar. este es uno de esos.
-        </p>
-        <a href="#" class="journal-card__link">leer artículo</a>
-      </div>
-    </div>
-
-    <!-- GRID -->
-    <div class="journal-grid">
-      <article class="journal-card reveal">
-        <div class="journal-card__img"><img src="assets/images/feed-3.jpg" alt=""/></div>
-        <p class="journal-card__cat">guía</p>
-        <h3 class="journal-card__title">guía para encontrar tu café favorito</h3>
-        <p class="journal-card__excerpt">criterios, tips y lugares que pasaron el filtro más exigente: el nuestro.</p>
-        <a href="#" class="journal-card__link">leer más</a>
-      </article>
-      <article class="journal-card reveal reveal-delay-1">
-        <div class="journal-card__img"><img src="assets/images/feed-6.jpg" alt=""/></div>
-        <p class="journal-card__cat">planes</p>
-        <h3 class="journal-card__title">los mejores rincones para una tarde larga</h3>
-        <p class="journal-card__excerpt">esos lugares donde el tiempo pasa diferente y siempre querés quedarte un poco más.</p>
-        <a href="#" class="journal-card__link">leer más</a>
-      </article>
-      <article class="journal-card reveal reveal-delay-2">
-        <div class="journal-card__img"><img src="assets/images/feed-5.jpg" alt=""/></div>
-        <p class="journal-card__cat">reseña</p>
-        <h3 class="journal-card__title">ese brunch que lo cambia todo</h3>
-        <p class="journal-card__excerpt">porque hay brunches y hay brunches. este es de los que se recuerdan.</p>
-        <a href="#" class="journal-card__link">leer más</a>
-      </article>
-      <article class="journal-card reveal">
-        <div class="journal-card__img"><img src="assets/images/hub.jpg" alt=""/></div>
-        <p class="journal-card__cat">favoritos</p>
-        <h3 class="journal-card__title">mis cinco cafés de cabecera</h3>
-        <p class="journal-card__excerpt">los que nunca fallan, los que siempre recomiendo y los que ya son parte de la rutina.</p>
-        <a href="#" class="journal-card__link">leer más</a>
-      </article>
-    </div>
-  </section>
+  <!-- GRID DE POSTS -->
+  <div class="blog-grid">
+    <article class="blog-card reveal">
+      <img class="blog-card__img" src="assets/images/feed-3.jpg" alt=""/>
+      <p class="blog-card__cat">guía</p>
+      <h2 class="blog-card__title">guía para encontrar tu café favorito</h2>
+      <p class="blog-card__excerpt">criterios, tips y lugares que pasaron el filtro más exigente: el nuestro.</p>
+      <a href="#" class="blog-card__link">leer más</a>
+    </article>
+    <article class="blog-card reveal reveal-delay-1">
+      <img class="blog-card__img" src="assets/images/feed-6.jpg" alt=""/>
+      <p class="blog-card__cat">planes</p>
+      <h2 class="blog-card__title">los mejores rincones para una tarde larga</h2>
+      <p class="blog-card__excerpt">esos lugares donde el tiempo pasa diferente y siempre querés quedarte un poco más.</p>
+      <a href="#" class="blog-card__link">leer más</a>
+    </article>
+    <article class="blog-card reveal">
+      <img class="blog-card__img" src="assets/images/feed-5.jpg" alt=""/>
+      <p class="blog-card__cat">reseña</p>
+      <h2 class="blog-card__title">ese brunch que lo cambia todo</h2>
+      <p class="blog-card__excerpt">porque hay brunches y hay brunches. este es de los que se recuerdan.</p>
+      <a href="#" class="blog-card__link">leer más</a>
+    </article>
+    <article class="blog-card reveal reveal-delay-1">
+      <img class="blog-card__img" src="assets/images/hub.jpg" alt=""/>
+      <p class="blog-card__cat">favoritos</p>
+      <h2 class="blog-card__title">mis cinco cafés de cabecera</h2>
+      <p class="blog-card__excerpt">los que nunca fallan, los que siempre recomiendo y los que ya son parte de la rutina.</p>
+      <a href="#" class="blog-card__link">leer más</a>
+    </article>
+  </div>
 
   <footer class="footer">
     <span class="footer__logo">mm.hub</span>
     <span class="footer__copy">© 2025 mm.hub</span>
     <nav class="footer__links">
-      <a href="about.html">about me</a>
+      <a href="fashion-blog.html">fashion blog</a>
       <a href="work.html">work with us</a>
-      <a href="contacto.html">contacto</a>
+      <a href="about.html">about me</a>
     </nav>
   </footer>
 
