@@ -235,103 +235,110 @@ section { padding: 6rem 3rem; }
   font-weight: 300;
 }
 
-/* ===== BLOG PAGES (fashion blog / name a better plan) ===== */
+/* ===== BLOG PAGES ===== */
+
+/* Featured post — full width hero */
 .blog-hero {
   background: var(--cream);
-  padding: 8rem 3rem 4rem;
+  padding: 7rem 3rem 0;
+}
+.blog-hero__featured {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 1fr;
   gap: 5rem;
   align-items: center;
-  min-height: 90vh;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(26,26,26,0.08);
+  margin-bottom: 4rem;
 }
 .blog-hero__img {
   width: 100%;
   aspect-ratio: 3/4;
   object-fit: cover;
-  filter: grayscale(15%);
 }
 .blog-hero__text { }
 .blog-hero__category {
-  font-size: 0.65rem;
-  letter-spacing: 0.18em;
-  color: var(--lavender);
-  margin-bottom: 1.5rem;
-  font-weight: 300;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: rgba(26,26,26,0.45);
+  margin-bottom: 1.2rem;
+  font-weight: 400;
 }
 .blog-hero__title {
   font-family: var(--ff-serif);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  line-height: 1.0;
-  margin-bottom: 2rem;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
   color: var(--navy);
 }
 .blog-hero__body {
-  font-size: 1rem;
-  line-height: 2;
-  opacity: 0.65;
+  font-size: 0.88rem;
+  line-height: 1.95;
+  opacity: 0.6;
   font-weight: 300;
-  max-width: 460px;
+  max-width: 440px;
 }
-.blog-hero__link {
-  display: inline-block;
-  margin-top: 2rem;
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  border-bottom: 1px solid var(--black);
-  padding-bottom: 2px;
-  font-weight: 400;
-  transition: opacity 0.2s;
+.blog-hero__meta {
+  margin-top: 1.5rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  opacity: 0.4;
+  font-weight: 300;
 }
-.blog-hero__link:hover { opacity: 0.5; }
 
+/* Vogue-style card grid */
 .blog-grid {
   background: var(--cream);
   padding: 0 3rem 6rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem 2rem;
 }
-.blog-card { }
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.blog-card__img-wrap {
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
 .blog-card__img {
   width: 100%;
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/4;
   object-fit: cover;
-  margin-bottom: 1.5rem;
+  display: block;
   filter: grayscale(10%);
-  transition: filter 0.4s;
+  transition: transform 0.5s cubic-bezier(0.25,0.1,0.25,1), filter 0.4s;
 }
-.blog-card:hover .blog-card__img { filter: grayscale(0%); }
+.blog-card:hover .blog-card__img { transform: scale(1.03); filter: grayscale(0%); }
 .blog-card__cat {
-  font-size: 0.62rem;
-  letter-spacing: 0.15em;
-  color: var(--lavender);
-  margin-bottom: 0.75rem;
-  font-weight: 300;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  color: rgba(26,26,26,0.45);
+  margin-bottom: 0.5rem;
+  font-weight: 400;
 }
 .blog-card__title {
   font-family: var(--ff-serif);
-  font-size: 1.6rem;
-  line-height: 1.1;
-  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.15;
   color: var(--navy);
+  margin-bottom: 0.6rem;
 }
 .blog-card__excerpt {
-  font-size: 0.83rem;
-  line-height: 1.85;
-  opacity: 0.6;
+  font-size: 0.78rem;
+  line-height: 1.8;
+  opacity: 0.55;
   font-weight: 300;
 }
-.blog-card__link {
-  display: inline-block;
-  margin-top: 1rem;
-  font-size: 0.62rem;
-  letter-spacing: 0.15em;
-  border-bottom: 1px solid var(--black);
-  padding-bottom: 2px;
-  transition: opacity 0.2s;
+.blog-card__meta {
+  margin-top: 0.75rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  opacity: 0.35;
+  font-weight: 300;
 }
-.blog-card__link:hover { opacity: 0.5; }
 
 /* ===== ABOUT ME ===== */
 .about-hero {
@@ -672,8 +679,9 @@ section { padding: 6rem 3rem; }
   section { padding: 4rem 1.5rem; }
   .hero-top { padding: 8rem 1.5rem 4rem; }
   .hero-top__photo { width: 30vw; left: 52%; }
-  .blog-hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 7rem 1.5rem 3rem; min-height: auto; }
-  .blog-grid { grid-template-columns: 1fr; padding: 0 1.5rem 4rem; gap: 3rem; }
+  .blog-hero { padding: 7rem 1.5rem 0; }
+  .blog-hero__featured { grid-template-columns: 1fr; gap: 2rem; }
+  .blog-grid { grid-template-columns: repeat(2, 1fr); padding: 0 1.5rem 4rem; gap: 2rem; }
   .about-hero { grid-template-columns: 1fr; gap: 2rem; padding: 7rem 1.5rem 0; }
   .about-feed { padding: 3rem 1.5rem 4rem; }
   .about-feed__grid { grid-template-columns: repeat(2, 1fr); }

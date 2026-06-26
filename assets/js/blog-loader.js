@@ -69,23 +69,26 @@ function postCard(post, index, sheetName, isFeatured = false) {
 
   if (isFeatured) {
     return `
-      <div class="blog-hero">
+      <div class="blog-hero__featured">
         <img class="blog-hero__img" src="${img}" alt="${title}" onerror="this.src='assets/images/feed-1.jpg'"/>
         <div class="blog-hero__text">
-          <p class="blog-hero__category">${cat}${fecha ? " · " + fecha : ""}</p>
+          <p class="blog-hero__category">${cat}</p>
           <h1 class="blog-hero__title">${title}</h1>
           <p class="blog-hero__body">${text}</p>
+          ${fecha ? `<p class="blog-hero__meta">${fecha}</p>` : ""}
         </div>
       </div>`;
   }
 
   return `
     <article class="blog-card">
-      <img class="blog-card__img" src="${img}" alt="${title}" onerror="this.src='assets/images/feed-1.jpg'"/>
+      <div class="blog-card__img-wrap">
+        <img class="blog-card__img" src="${img}" alt="${title}" onerror="this.src='assets/images/feed-1.jpg'"/>
+      </div>
       <p class="blog-card__cat">${cat}</p>
       <h2 class="blog-card__title">${title}</h2>
-      <p class="blog-card__excerpt">${text.length > 160 ? text.slice(0, 160) + "…" : text}</p>
-      ${fecha ? `<p style="font-size:0.6rem;opacity:0.4;margin-top:0.5rem;font-weight:300">${fecha}</p>` : ""}
+      <p class="blog-card__excerpt">${text.length > 140 ? text.slice(0, 140) + "…" : text}</p>
+      ${fecha ? `<p class="blog-card__meta">${fecha}</p>` : ""}
     </article>`;
 }
 
@@ -109,16 +112,11 @@ async function loadBlog(sheetName) {
     // First post → featured hero
     heroEl.innerHTML = postCard(posts[0], 0, sheetName, true);
 
-    // Rest → grid
-    if (posts.length > 1) {
-      gridEl.style.display = "grid";
-      gridEl.innerHTML = posts
-        .slice(1)
-        .map((p, i) => postCard(p, i + 1, sheetName, false))
-        .join("");
-    } else {
-      gridEl.style.display = "none";
-    }
+    // Rest → Vogue-style grid (all posts including first)
+    gridEl.style.display = "grid";
+    gridEl.innerHTML = posts
+      .map((p, i) => postCard(p, i, sheetName, false))
+      .join("");
   } catch (err) {
     heroEl.innerHTML = `<div style="padding:8rem 3rem;text-align:center;opacity:0.4;font-size:0.85rem">no se pudo cargar el contenido</div>`;
   }
