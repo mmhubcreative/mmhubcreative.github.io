@@ -108,8 +108,8 @@ async function loadBlog(sheetName) {
   if (!heroEl || !gridEl) return;
 
   try {
-    const url = `${SHEET_BASE}&sheet=${sheetName}&t=${Date.now()}`;
-    const res = await fetch(url);
+    const url = `${SHEET_BASE}&sheet=${sheetName}&t=${Date.now()}&r=${Math.random()}`;
+    const res = await fetch(url, { cache: "no-store" });
     const text = await res.text();
     const posts = parseCSV(text);
 
