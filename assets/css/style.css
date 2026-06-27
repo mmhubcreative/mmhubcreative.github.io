@@ -462,8 +462,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   text-align: center;
 }
 .work-cta__title {
-  font-family: var(--ff-display);
+  font-family: 'Newsreader', Georgia, sans-serif;
   font-style: italic;
+  font-weight: 300;
+  font-optical-sizing: none;
   font-size: clamp(2rem, 5vw, 3.5rem);
   color: var(--cream);
   margin-bottom: 3rem;
