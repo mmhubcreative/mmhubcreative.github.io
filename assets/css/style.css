@@ -512,6 +512,26 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ── ABOUT ME ── */
 .about-page { background: var(--cream); }
+
+.about-fullpage {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+.about-fullpage__img {
+  width: 100%;
+  display: block;
+}
+.about-fullpage__btns {
+  position: absolute;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .about-hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
