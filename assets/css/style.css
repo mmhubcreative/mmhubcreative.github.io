@@ -162,7 +162,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .lema__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(10, 12, 28, 0.72);
+  background: rgba(10, 12, 28, 0.25);
 }
 .lema__curves {
   position: absolute;
