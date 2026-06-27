@@ -715,24 +715,28 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 1.4rem; color: var(--navy); opacity: 0.35;
 }
 
-.post-hero {
-  width: 100%;
-  max-height: 70vh;
-  overflow: hidden;
+.post-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   padding-top: 5rem;
+  min-height: calc(100vh - 5rem);
 }
-.post-hero__img {
+.post-split__img {
+  position: sticky;
+  top: 5rem;
+  align-self: start;
+  height: calc(100vh - 5rem);
+  overflow: hidden;
+}
+.post-split__img img {
   width: 100%;
-  max-height: 65vh;
+  height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center;
   display: block;
 }
-
-.post-body {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 4rem 2rem 8rem;
+.post-split__content {
+  padding: 5rem 4.5rem 8rem;
 }
 .post-back {
   display: inline-block;

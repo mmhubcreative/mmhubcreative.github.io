@@ -47,13 +47,14 @@
   <script>
     (async () => {
       const params   = new URLSearchParams(location.search);
-      const sheet    = params.get("sheet") || "0";
+      const sheet    = params.get("sheet") || "fashion_blog";
       const idx      = parseInt(params.get("idx") || "0", 10);
       const backHref = sheet === "1777236772" ? "name-a-better-plan.html" : "fashion-blog.html";
       const label    = SECTION_LABELS[sheet] || sheet;
+      const sheetParam = /^\d+$/.test(sheet) ? `gid=${sheet}` : `sheet=${sheet}`;
 
       try {
-        const url   = `${SHEET_BASE}&gid=${sheet}&nocache=${Date.now()}`;
+        const url   = `${SHEET_BASE}&${sheetParam}&nocache=${Date.now()}`;
         const res   = await fetch(url, { cache: "no-store" });
         const csv   = await res.text();
         const posts = parseCSV(csv);
@@ -74,15 +75,17 @@
         document.title = `${title} — mm.hub`;
 
         document.getElementById("post-page").innerHTML = `
-          <div class="post-hero">
-            ${img ? `<img class="post-hero__img" src="${img}" alt="${title}"/>` : ""}
-          </div>
-          <div class="post-body">
-            <a class="post-back" href="${backHref}">← ${label}</a>
-            ${cat  ? `<p class="post-cat">${cat}</p>` : ""}
-            <h1 class="post-title">${title}</h1>
-            ${fecha ? `<p class="post-date">${fecha}</p>` : ""}
-            <div class="post-text">${text.replace(/\n/g, "<br>")}</div>
+          <div class="post-split">
+            <div class="post-split__img">
+              ${img ? `<img src="${img}" alt="${title}"/>` : ""}
+            </div>
+            <div class="post-split__content">
+              <a class="post-back" href="${backHref}">← ${label}</a>
+              ${cat ? `<p class="post-cat">${cat}</p>` : ""}
+              <h1 class="post-title">${title}</h1>
+              ${fecha ? `<p class="post-date">${fecha}</p>` : ""}
+              <div class="post-text">${text.replace(/\n/g, "<br>")}</div>
+            </div>
           </div>
         `;
       } catch (e) {

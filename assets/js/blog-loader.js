@@ -111,7 +111,8 @@ async function loadBlog(sheetName) {
   if (!featuredEl && !gridEl) return;
 
   try {
-    const url = `${SHEET_BASE}&gid=${sheetName}&nocache=${Date.now()}`;
+    const param = /^\d+$/.test(sheetName) ? `gid=${sheetName}` : `sheet=${sheetName}`;
+    const url = `${SHEET_BASE}&${param}&nocache=${Date.now()}`;
     const res  = await fetch(url, { cache: "no-store" });
     const csv  = await res.text();
     const posts = parseCSV(csv);
@@ -136,7 +137,8 @@ async function loadBlog(sheetName) {
 /* ── HOME PREVIEW LOADER ── */
 async function loadHomePreview(sheetName, titleEl, excerptEl, imgWrapEl) {
   try {
-    const url   = `${SHEET_BASE}&gid=${sheetName}&nocache=${Date.now()}`;
+    const param2 = /^\d+$/.test(sheetName) ? `gid=${sheetName}` : `sheet=${sheetName}`;
+    const url   = `${SHEET_BASE}&${param2}&nocache=${Date.now()}`;
     const res   = await fetch(url, { cache: "no-store" });
     const csv   = await res.text();
     const posts = parseCSV(csv);
