@@ -113,6 +113,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--ff-display);
   font-style: italic;
   font-size: clamp(5rem, 15vw, 13rem);
+  font-optical-sizing: none;
+  font-variation-settings: 'opsz' 14;
   color: var(--navy);
   line-height: 0.88;
   position: relative;
