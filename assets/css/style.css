@@ -514,21 +514,45 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .about-page { background: var(--cream); }
 
 .about-fullpage {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
+  background: var(--cream);
+  padding-top: 6rem;
 }
-.about-fullpage__img {
-  width: 100%;
+.about-portrait {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 4rem 6rem;
+  gap: 3rem;
+}
+.about-portrait__label {
+  font-family: var(--ff-sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--black);
+  opacity: 0.45;
+  text-align: center;
+}
+.about-portrait__img {
+  width: clamp(240px, 22vw, 320px);
   display: block;
+  object-fit: cover;
+}
+.about-bio {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2rem 4rem 0;
+  font-size: 0.88rem;
+  line-height: 2;
+  opacity: 0.65;
+  text-align: justify;
+  color: var(--black);
 }
 .about-fullpage__btns {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 3rem 2rem 5rem;
-  background: var(--cream);
+  padding: 3.5rem 2rem 5rem;
 }
 .about-hero {
   display: grid;
