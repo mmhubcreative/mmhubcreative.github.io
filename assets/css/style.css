@@ -185,7 +185,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   line-height: 1.2;
 }
 .lema__text em {
-  font-family: var(--ff-display);
+  font-family: 'Newsreader', Georgia, sans-serif;
+  font-weight: 300;
+  font-optical-sizing: none;
   font-style: italic;
 }
 
@@ -236,7 +238,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .home-blog__img:hover img { transform: scale(1.03); }
 .home-blog__title {
-  font-family: var(--ff-display);
+  font-family: 'Newsreader', Georgia, sans-serif;
+  font-weight: 300;
+  font-optical-sizing: none;
   font-style: italic;
   font-size: 1.75rem;
   color: var(--navy);
@@ -272,7 +276,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   animation: marquee 28s linear infinite;
 }
 .marquee-band__item {
-  font-family: var(--ff-display);
+  font-family: 'Newsreader', Georgia, sans-serif;
+  font-weight: 300;
+  font-optical-sizing: none;
   font-style: italic;
   font-size: 1rem;
   color: var(--cream);
@@ -313,7 +319,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-bottom: 2rem;
 }
 .blog-featured__title {
-  font-family: var(--ff-display);
+  font-family: 'Newsreader', Georgia, sans-serif;
+  font-weight: 300;
+  font-optical-sizing: none;
   font-style: italic;
   font-size: clamp(2rem, 4vw, 3.8rem);
   color: var(--navy);
@@ -372,7 +380,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-bottom: 0.45rem;
 }
 .blog-card__title {
-  font-family: var(--ff-display);
+  font-family: 'Newsreader', Georgia, sans-serif;
+  font-weight: 300;
+  font-optical-sizing: none;
   font-style: italic;
   font-size: 1.18rem;
   color: var(--navy);
@@ -397,7 +407,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 9rem 4rem 4rem;
 }
 .work-intro__title {
-  font-family: var(--ff-display);
+  font-family: 'Newsreader', Georgia, sans-serif;
+  font-weight: 300;
+  font-optical-sizing: none;
   font-style: italic;
   font-size: clamp(3rem, 7vw, 6rem);
   color: var(--navy);
@@ -427,14 +439,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .accordion__trigger:hover { background: rgba(26,26,26,0.02); }
 .accordion__num {
-  font-family: var(--ff-display);
+  font-family: 'Newsreader', Georgia, sans-serif;
+  font-weight: 300;
+  font-optical-sizing: none;
   font-style: italic;
   font-size: 2rem;
   color: var(--lavender);
   line-height: 1;
 }
 .accordion__name {
-  font-family: var(--ff-display);
+  font-family: 'Newsreader', Georgia, sans-serif;
+  font-weight: 300;
+  font-optical-sizing: none;
   font-style: italic;
   font-size: clamp(1.4rem, 2.5vw, 2rem);
   color: var(--navy);
@@ -515,7 +531,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   justify-content: center;
 }
 .about-hero__hi {
-  font-family: var(--ff-display);
+  font-family: 'Newsreader', Georgia, sans-serif;
+  font-weight: 300;
+  font-optical-sizing: none;
   font-style: italic;
   font-size: clamp(4rem, 8vw, 7rem);
   color: var(--navy);
@@ -569,7 +587,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   justify-content: space-between;
 }
 .footer__logo {
-  font-family: var(--ff-display);
+  font-family: 'Newsreader', Georgia, sans-serif;
+  font-weight: 300;
+  font-optical-sizing: none;
   font-style: italic;
   font-size: 1.3rem;
   color: var(--cream);
@@ -662,7 +682,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .post-empty {
   padding: 8rem 3rem;
   text-align: center;
-  font-family: var(--ff-display);
+  font-family: 'Newsreader', Georgia, sans-serif;
+  font-weight: 300;
+  font-optical-sizing: none;
   font-style: italic;
   font-size: 1.2rem;
   opacity: 0.4;
