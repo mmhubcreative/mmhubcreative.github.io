@@ -547,6 +547,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   text-align: justify;
   color: var(--black);
 }
+.about-composite {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 2rem 0;
+}
+.about-composite__img {
+  width: clamp(300px, 50vw, 680px);
+  display: block;
+}
 .about-fullpage__btns {
   display: flex;
   gap: 1rem;
