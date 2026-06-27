@@ -151,6 +151,11 @@ async function loadHomePreview(sheetName, titleEl, excerptEl, imgWrapEl) {
 
     if (titleEl && title)   titleEl.textContent  = title;
     if (excerptEl && text)  excerptEl.textContent = text.length > 120 ? text.slice(0, 120) + "…" : text;
-    if (imgWrapEl && img)   imgWrapEl.querySelector("img").src = img;
+    if (imgWrapEl && img) {
+      const imgEl = imgWrapEl.querySelector("img");
+      imgEl.style.opacity = "1";
+      imgEl.onerror = () => { imgEl.style.opacity = "0"; };
+      imgEl.src = img;
+    }
   } catch (e) { /* silently skip */ }
 }
