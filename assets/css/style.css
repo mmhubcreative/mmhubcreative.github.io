@@ -523,14 +523,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: block;
 }
 .about-fullpage__btns {
-  position: absolute;
-  bottom: 4rem;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 3rem 2rem 5rem;
+  background: var(--cream);
 }
 .about-hero {
   display: grid;
