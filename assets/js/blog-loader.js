@@ -5,33 +5,37 @@ const SECTION_LABELS = {
   name_a_better_plan: "name a better plan",
 };
 
-/* ── CSV PARSER ── */
+/* ── CSV PARSER (handles multi-line quoted cells) ── */
 function parseCSV(text) {
-  const lines = text.trim().split("\n");
-  if (lines.length < 3) return [];
-  const headers = splitLine(lines[1]).map(h => h.replace(/^"|"$/g, "").trim());
   const rows = [];
-  for (let i = 2; i < lines.length; i++) {
-    const cols = splitLine(lines[i]);
-    if (cols.every(c => !c.trim())) continue;
-    const obj = {};
-    headers.forEach((h, idx) => {
-      obj[h] = (cols[idx] || "").replace(/^"|"$/g, "").trim();
-    });
-    rows.push(obj);
-  }
-  return rows;
-}
+  let row = [], cur = "", inQ = false;
 
-function splitLine(line) {
-  const result = [];
-  let cur = "", inQ = false;
-  for (const ch of line) {
-    if (ch === '"') { inQ = !inQ; continue; }
-    if (ch === ',' && !inQ) { result.push(cur); cur = ""; continue; }
-    cur += ch;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (inQ) {
+      if (ch === '"' && text[i + 1] === '"') { cur += '"'; i++; }
+      else if (ch === '"') { inQ = false; }
+      else { cur += ch; }
+    } else {
+      if (ch === '"') { inQ = true; }
+      else if (ch === ',') { row.push(cur); cur = ""; }
+      else if (ch === '\r') { /* skip */ }
+      else if (ch === '\n') { row.push(cur); cur = ""; rows.push(row); row = []; }
+      else { cur += ch; }
+    }
   }
-  result.push(cur);
+  row.push(cur);
+  if (row.some(c => c.trim())) rows.push(row);
+
+  if (rows.length < 3) return [];
+  const headers = rows[1].map(h => h.trim());
+  const result = [];
+  for (let i = 2; i < rows.length; i++) {
+    if (rows[i].every(c => !c.trim())) continue;
+    const obj = {};
+    headers.forEach((h, idx) => { obj[h] = (rows[i][idx] || "").trim(); });
+    if (Object.values(obj).some(v => v)) result.push(obj);
+  }
   return result;
 }
 
