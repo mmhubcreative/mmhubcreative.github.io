@@ -778,6 +778,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--black);
   text-align: justify;
 }
+.post-mention {
+  color: var(--navy);
+  opacity: 1;
+  border-bottom: 1px solid currentColor;
+  transition: opacity 0.2s;
+}
+.post-mention:hover { opacity: 0.6; }
 .post-empty {
   padding: 8rem 3rem;
   text-align: center;
