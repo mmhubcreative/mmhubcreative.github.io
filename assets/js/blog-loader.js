@@ -43,8 +43,9 @@ function parseCSV(text) {
 function driveUrl(url) {
   if (!url) return null;
   const m = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
-  if (m) return `https://drive.google.com/uc?export=view&id=${m[1]}`;
-  if (url.includes("drive.google.com/uc")) return url;
+  if (m) return `https://drive.google.com/thumbnail?id=${m[1]}&sz=w1200`;
+  const uc = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+  if (uc) return `https://drive.google.com/thumbnail?id=${uc[1]}&sz=w1200`;
   if (url.startsWith("http")) return url;
   return null;
 }
