@@ -637,8 +637,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-bottom: 1rem;
 }
 .post-title {
-  font-family: var(--ff-display);
+  font-family: 'Newsreader', Georgia, sans-serif;
   font-style: italic;
+  font-weight: 300;
+  font-optical-sizing: none;
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   color: var(--navy);
   line-height: 1.05;
