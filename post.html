@@ -47,13 +47,13 @@
   <script>
     (async () => {
       const params   = new URLSearchParams(location.search);
-      const sheet    = params.get("sheet") || "fashion_blog";
+      const sheet    = params.get("sheet") || "0";
       const idx      = parseInt(params.get("idx") || "0", 10);
-      const backHref = sheet === "name_a_better_plan" ? "name-a-better-plan.html" : "fashion-blog.html";
+      const backHref = sheet === "1777236772" ? "name-a-better-plan.html" : "fashion-blog.html";
       const label    = SECTION_LABELS[sheet] || sheet;
 
       try {
-        const url   = `${SHEET_BASE}&sheet=${sheet}&nocache=${Date.now()}`;
+        const url   = `${SHEET_BASE}&gid=${sheet}&nocache=${Date.now()}`;
         const res   = await fetch(url, { cache: "no-store" });
         const csv   = await res.text();
         const posts = parseCSV(csv);

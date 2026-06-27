@@ -1,8 +1,8 @@
 const SHEET_BASE = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRMhDPTkKagccSS7r_54PlF87LyXS-M6Q1nVIfxnHn97pziUeG8Rp1-HqgfgQ11n9rTtAMJynDjvQuY/pub?output=csv";
 
 const SECTION_LABELS = {
-  fashion_blog:       "fashion blog",
-  name_a_better_plan: "name a better plan",
+  "0":          "fashion blog",
+  "1777236772": "name a better plan",
 };
 
 /* ── CSV PARSER (handles multi-line quoted cells) ── */
@@ -111,7 +111,7 @@ async function loadBlog(sheetName) {
   if (!featuredEl && !gridEl) return;
 
   try {
-    const url = `${SHEET_BASE}&sheet=${sheetName}&nocache=${Date.now()}`;
+    const url = `${SHEET_BASE}&gid=${sheetName}&nocache=${Date.now()}`;
     const res  = await fetch(url, { cache: "no-store" });
     const csv  = await res.text();
     const posts = parseCSV(csv);
@@ -136,7 +136,7 @@ async function loadBlog(sheetName) {
 /* ── HOME PREVIEW LOADER ── */
 async function loadHomePreview(sheetName, titleEl, excerptEl, imgWrapEl) {
   try {
-    const url   = `${SHEET_BASE}&sheet=${sheetName}&nocache=${Date.now()}`;
+    const url   = `${SHEET_BASE}&gid=${sheetName}&nocache=${Date.now()}`;
     const res   = await fetch(url, { cache: "no-store" });
     const csv   = await res.text();
     const posts = parseCSV(csv);
