@@ -111,10 +111,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   overflow: hidden;
 }
 .home-hero__title {
-  font-family: 'Newsreader', Georgia, sans-serif;
+  font-family: 'MMSerif', Georgia, sans-serif;
   font-style: italic;
-  font-weight: 300;
-  font-optical-sizing: none;
+  font-weight: 400;
   font-size: clamp(5rem, 15vw, 13rem);
   color: var(--navy);
   line-height: 0.88;
@@ -122,19 +121,19 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   z-index: 1;
 }
 .home-hero__photo {
-  width: clamp(130px, 16vw, 210px);
+  width: clamp(160px, 18vw, 240px);
   aspect-ratio: 3/4;
   object-fit: cover;
   position: absolute;
   top: 50%;
-  left: 54%;
-  transform: translateY(-58%) rotate(2.5deg);
+  left: 50%;
+  transform: translate(-35%, -52%) rotate(5deg);
   z-index: 2;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.18);
 }
 .home-hero__handle {
   font-size: 0.78rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   color: var(--navy);
   opacity: 0.4;
   margin-top: 2rem;
@@ -148,14 +147,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--navy);
+  background: var(--navy) url('../images/lema-bg.jpg') center/cover no-repeat;
   position: relative;
   overflow: hidden;
 }
 .lema__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(20, 25, 50, 0.65);
+  background: rgba(10, 12, 28, 0.72);
 }
 .lema__curves {
   position: absolute;
