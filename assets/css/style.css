@@ -547,29 +547,23 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   text-align: justify;
   color: var(--black);
 }
-.about-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: calc(100vh - 5rem);
-  padding-top: 5rem;
-  background: var(--cream);
-}
-.about-split__photo {
-  overflow: hidden;
-}
-.about-split__photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  display: block;
-}
-.about-split__content {
+.about-simple {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 6rem 2rem 0;
+  background: var(--cream);
+}
+.about-simple__img {
+  width: min(820px, 82vw);
+  display: block;
+}
+.about-simple__btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
   justify-content: center;
-  padding: 5rem 5rem 5rem 6rem;
-  gap: 1.5rem;
+  padding: 3rem 2rem 5rem;
 }
 .about-split__hi {
   font-family: 'Newsreader', Georgia, sans-serif;
